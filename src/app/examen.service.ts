@@ -1,9 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExamenService {
 
-  constructor() { }
+  private apiUrl = 'https://qapi.vercel.app/api/random';
+
+  constructor(private http: HttpClient) {
+
+  }
+  getFrase(): Observable<any> {
+    return this.http.get(`${this.apiUrl}?`)
+  }
 }
